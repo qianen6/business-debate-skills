@@ -24,6 +24,18 @@ exchange and produces a final battle-tested canvas + debate report.
 - Before pitching to investors — simulate tough questions first
 - When you want to identify the weakest assumptions in your model
 
+## Depth Modes
+
+Choose depth based on context:
+
+| Mode | Rounds | When to Use |
+|------|--------|-------------|
+| **Fast** | 1 round + synthesis | Quick sanity check, early brainstorming |
+| **Thorough** | 2-5 rounds + rebuttals | Pre-investor, major pivots (default) |
+| **Red Team** | Up to 10 rounds, full convergence | Entering new markets, high-stakes decisions |
+
+If the user doesn't specify, default to **Thorough**. Ask only if ambiguous.
+
 ## Architecture
 
 ```
@@ -318,6 +330,21 @@ After all rounds complete, the Referee (main agent) generates `debate-report.md`
 ### 本周行动
 [the ONE thing to do this week]
 
+## 张力表 (Tension Table)
+
+| 维度 | 挑战者立场 | 防守者立场 | 张力程度 | 最终共识 |
+|------|-----------|-----------|---------|---------|
+| [维度1] | [观点] | [观点] | 高/中/低 | [达成/未达成] |
+| [维度2] | [观点] | [观点] | 高/中/低 | [达成/未达成] |
+
+## 少数派报告 (Minority Report)
+
+即使最终判定达成共识，记录反对方的最强论点——不是被击败的论点，
+而是"如果条件变化，这个论点可能会变成正确的"：
+
+**挑战者最强未采纳观点：** [即使被防守者反驳，但在特定条件下可能成立的挑战]
+**防守者最强未采纳论点：** [即使被挑战者压制，但可能被低估的防御]
+
 ## 博弈收敛分析
 
 ### 收敛的议题 (双方达成共识)
@@ -328,6 +355,9 @@ After all rounds complete, the Referee (main agent) generates `debate-report.md`
 
 ### 新发现 (博弈过程中涌现的洞察)
 - [insight that emerged from the debate process itself]
+
+## Single Falsifying Assumption (证伪假设)
+如果我对 [一个关键假设] 的判断是错的，整个博弈结论会翻转，因为 [原因]。
 ```
 
 ## Practical Execution Guide
@@ -387,6 +417,25 @@ The debate-report.md and battle-tested canvas files serve as inputs for:
 - Investor pitch preparation
 - Team alignment workshops
 - Product roadmap prioritization
+
+## Archive & INDEX
+
+Each debate run appends to `docs/business/debate-index.md` for longitudinal tracking:
+
+```markdown
+# Business Debate Index
+
+| Date | Product | Depth | Rounds | Robustness | Falsifying Assumption | Status |
+|------|---------|-------|--------|------------|----------------------|--------|
+| 2026-04-19 | ProteinClaw | Thorough | 3 | 6/10 | 下游用户需求真实性 | Active |
+```
+
+**Status options:** Active / Decided / Monitoring / Shelved / Invalidated
+
+After 3+ debates, add a **Pattern Review** section to INDEX:
+- Which challenges recur across debates? (structural blind spots)
+- Which perspectives are consistently right/wrong? (calibration)
+- Has the robustness score trended up or down? (trajectory)
 
 ## Anti-patterns
 

@@ -26,6 +26,24 @@ before solutions are proposed. This skill produces a diagnostic report, not code
 
 A diagnostic report saved to `docs/business/office-hours-report.md` (create dir if needed).
 
+## Phase 0: Kill Gate (5-minute viability screen)
+
+Before investing in the full diagnostic, run a rapid screen. Use web search to answer:
+
+1. **Graveyard check:** Search for failed companies in this exact space. If 3+ well-funded
+   startups died doing this, document WHY they died. Does this project avoid their failure modes?
+2. **Empty market check:** If literally no one has tried this, ask why. Sometimes it's a
+   blue ocean. More often it's a market that doesn't exist.
+3. **Existing solution check:** Is there a dominant incumbent? If so, what's the switching cost?
+
+**Kill Gate verdicts:**
+- **PROCEED** — No fatal red flags found. Continue to full diagnostic.
+- **RESEARCH** — Serious concerns found. List them, ask the user to address before continuing.
+- **KILL** — Multiple dead companies with same approach, no evidence of different outcome.
+  Output a short report explaining why and STOP. Do not run the full diagnostic.
+
+Output the Kill Gate result before proceeding. If PROCEED, move to Phase 1.
+
 ## Phase 1: Context Gathering
 
 1. Read the project README, AGENTS.md, or any product description files
@@ -198,8 +216,15 @@ If the user disagrees, revise and loop back.
 
 Produce a diagnostic report with:
 
-### Demand Strength Score (1-10)
+### Demand Strength Score (dual scoring)
 
+Output **two** scores:
+- **Optimistic (乐观分, 1-10)**: Assuming founder's claims are accurate
+- **Realistic (现实分, 1-10)**: Only counting hard evidence (payment, usage data, behavior)
+
+State in one line: "乐观与现实的差距来自 [具体原因]"
+
+**Calibration:**
 - **9-10**: Users panic when it breaks. Revenue growing. Clear pull.
 - **7-8**: Signed contracts or active daily users. Some payment evidence.
 - **5-6**: Interest signals but no payment or panic behavior.
@@ -214,8 +239,11 @@ Produce a diagnostic report with:
 Generated: [date]
 Product Stage: [Pre-product / Has users / Has paying customers]
 
-## Demand Strength: X/10
-[1-2 sentence summary]
+## Kill Gate: [PROCEED / RESEARCH / KILL]
+[Graveyard check result, dead companies found, empty market assessment]
+
+## Demand Strength: Optimistic X/10 | Realistic Y/10
+[1-2 sentence summary. Gap reason: ...]
 
 ## Q1: Demand Reality
 **Evidence:** [what the founder provided]
@@ -252,8 +280,14 @@ Product Stage: [Pre-product / Has users / Has paying customers]
 ## Founder Signals Observed
 - [specific things noticed about how the founder thinks]
 
+## Dead Companies in This Space
+[Companies that tried similar things and failed, with failure reasons. "None found" if truly novel.]
+
 ## Biggest Risk
 [The #1 thing that could kill this]
+
+## Single Falsifying Assumption (证伪假设)
+如果我对 [X] 的判断是错的，整个诊断结论会翻转，因为 [Y]。
 
 ## Recommended Next Step
 After completing the assignment, run the business-canvas skill to model the

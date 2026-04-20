@@ -141,7 +141,12 @@ This is the most valuable step — do NOT skip it.
 | Feature A | Job #1 | Pain #2 | Gain #1 | Strong |
 | Feature B | - | - | - | Orphan |
 
-Output an overall fit score (1-10) with explanation using the calibration below.
+Output **two** fit scores with explanation using the calibration below:
+
+1. **Optimistic Score (乐观分)**: Assuming all unvalidated hypotheses are true
+2. **Realistic Score (现实分)**: Only counting validated evidence (customer quotes, usage data, payment)
+
+In one line, state: "乐观分与现实分的差距来自 [具体原因]"
 
 **Fit Score Calibration:**
 - **9-10**: Every severe pain has a strong reliever. No orphan features. Users would
@@ -383,6 +388,9 @@ If the user requests, generate a 1-page executive summary (canvas-summary.md):
 ## Biggest Risk
 [The #1 assumption that could kill this, and how to test it]
 
+## Single Falsifying Assumption (证伪假设)
+如果我对 [X] 的判断是错的，整个结论会翻转，因为 [Y]。
+
 ## Next 30-Day Action Plan
 1. [Action 1]
 2. [Action 2]
@@ -435,10 +443,15 @@ Generated: [date]
 | 1 | ... | Gain #1 | High |
 
 ## Fit Assessment
-- Problem-Solution Fit Score: X/10
+- Optimistic Fit Score (乐观分): X/10
+- Realistic Fit Score (现实分): Y/10
+- Gap reason: 乐观与现实的差距来自 [...]
 - Strongest fit: ...
 - Gaps: ...
 - Recommended wedge: ...
+
+## Single Falsifying Assumption (证伪假设)
+如果我对 [一个关键假设] 的判断是错的，整个商业模式会崩塌，因为 [原因]。
 ```
 
 ### business-model-canvas.md format:
